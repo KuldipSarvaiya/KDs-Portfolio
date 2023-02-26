@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/KDs-Portfolio/static/css/main.80b16fe0.css",
+    "main.js": "/KDs-Portfolio/static/js/main.d2e35f1d.js",
+    "static/js/201.4574f07a.chunk.js": "/KDs-Portfolio/static/js/201.4574f07a.chunk.js",
+    "static/js/787.1ed0c42c.chunk.js": "/KDs-Portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/linkedin.png": "/KDs-Portfolio/static/media/linkedin.39b978e0dfff057adaee.png",
+    "static/media/instagram.png": "/KDs-Portfolio/static/media/instagram.30791cba72bcfe586d8d.png",
+    "static/media/gmail.png": "/KDs-Portfolio/static/media/gmail.f2f70e6e714395895eb2.png",
+    "static/media/github.png": "/KDs-Portfolio/static/media/github.33f2e0bac302afac02a0.png",
+    "static/media/facebook.png": "/KDs-Portfolio/static/media/facebook.834f0bd904c19e202be5.png",
+    "static/media/calling-app.png": "/KDs-Portfolio/static/media/calling-app.f35d5068991ed250310f.png",
+    "static/media/snapchat.png": "/KDs-Portfolio/static/media/snapchat.4f43a21fd09d369f1f24.png",
+    "static/media/location.png": "/KDs-Portfolio/static/media/location.fb122253fcf3a45ab0ce.png",
+    "static/media/kd-photo.png": "/KDs-Portfolio/static/media/kd-photo.ad389f9316f91e670948.png",
+    "static/media/ks.png": "/KDs-Portfolio/static/media/ks.e8e8f8681808c365ffc8.png",
+    "static/media/space_game.jpg": "/KDs-Portfolio/static/media/space_game.4b2b1f99f5fc655111fe.jpg",
+    "index.html": "/KDs-Portfolio/index.html",
+    "main.80b16fe0.css.map": "/KDs-Portfolio/static/css/main.80b16fe0.css.map",
+    "main.d2e35f1d.js.map": "/KDs-Portfolio/static/js/main.d2e35f1d.js.map",
+    "201.4574f07a.chunk.js.map": "/KDs-Portfolio/static/js/201.4574f07a.chunk.js.map",
+    "787.1ed0c42c.chunk.js.map": "/KDs-Portfolio/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.80b16fe0.css",
+    "static/js/main.d2e35f1d.js"
+  ]
+}

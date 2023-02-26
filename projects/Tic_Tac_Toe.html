@@ -1,0 +1,297 @@
+<!--
+    Program: tic-tac-tui
+    Date   : 19 Sept 2022
+    Copyright : KULDIP SARVAIYA
+-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Play & Win</title>
+    <style>
+        * {
+            background-color: rgb(0, 0, 0);
+            margin: 1px;
+        }
+
+        .table1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-width: 4px;
+            border-color: rgb(0, 0, 0);
+            align-items: center;
+            width: 100%;
+            height: auto;
+            border-spacing: 0ch;
+            border-collapse: collapse;
+            table-layout: auto;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #box-1,
+        #box-2,
+        #box-3,
+        #box-4,
+        #box-5,
+        #box-6,
+        #box-7,
+        #box-8,
+        #box-9 {
+            display: flex;
+            width: 113px;
+            height: 113px;
+            margin: 2px 1px;
+            flex: auto;
+            background-color: rgb(255, 255, 255);
+        } 
+ 
+        h2 {
+            margin: 0px;
+            padding: 0px;
+            color: rgb(255, 255, 255);
+            text-shadow: 2px 2px 2px rgb(255, 0, 0), -2px -2px 3px rgb(25, 226, 226);
+            display: flex;
+            font-family: 'comic sans MS', 'Courier New', Courier, monospace;
+            align-items: center;
+            justify-content: center;
+            font-size: xx-large;
+        }
+
+        #main {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+        }
+
+        #circle,
+        #cross {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        button {
+            color: brown;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            border: none;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+
+        address {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 700;
+            font-size: large;
+            color: rgb(0, 250, 237);
+            background-color: rgb(59, 55, 55);
+            position: relative;
+            bottom: 0px;
+            text-shadow: 2px 3px 1px rgb(0, 0, 0)
+        }
+
+        center {
+            background-color: rgb(59, 55, 55);
+        }
+
+        #won{
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="circle">
+        <svg width="114" height="114" style="background-color:white">
+            <circle cx="57" cy="57" r="50" stroke="red" stroke-width="8" fill="white" />
+        </svg>
+    </div>
+    <div id="cross" width="144" height="140" style="background-color:white; ">
+        <svg height="110" width="114" style="background-color:white">
+            <line x1="0" y1="0" x2="200" y2="195" style="stroke:rgb(0, 0, 255);stroke-width:8" />
+            <line x1="200" y1="-85" x2="0" y2="110" style="stroke:rgb(0,0,255);stroke-width:8" />
+        </svg>
+    </div>
+
+    <h2>Tic Tac Toe</h2>
+    <hr> <br>
+ 
+    <div class="form">
+        <center>
+            <input type="text" placeholder="O - Player-1" class="player1" style="border-color: red;color: white;"
+                disabled>
+            <input type="text" placeholder="X - Player-2" class="player2" style="border-color: blue;color: white;"
+                disabled>
+        </center>
+    </div>
+    <br> 
+    
+    <div id="main">
+        <table class="table1" border="white">
+                <tr>
+                    <td>
+                        <div id="box-1"><button onclick="myfunction(0,0,1)"></button></div>
+                    </td>
+                    <td>
+                        <div id="box-2"><button onclick="myfunction(0,1,2)"></button></div>
+                    </td>
+                    <td>
+                        <div id="box-3"><button onclick="myfunction(0,2,3)"></button></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="box-4"><button onclick="myfunction(1,0,4)"></button></div>
+                    </td>
+                    <td>
+                        <div id="box-5"><button onclick="myfunction(1,1,5)"></button></div>
+                    </td>
+                    <td>
+                        <div id="box-6"><button onclick="myfunction(1,2,6)"></button></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div id="box-7"><button onclick="myfunction(2,0,7)"></button></div>
+                    </td>
+                    <td>
+                        <div id="box-8"><button onclick="myfunction(2,1,8)"></button></div>
+                    </td>
+                    <td>
+                        <div id="box-9"><button onclick="myfunction(2,2,9)"></button></div>
+                    </td>
+                </tr>
+            </table>
+        </div> 
+
+    <br>
+
+    <address>
+        <center>
+            <br>
+            Developed By - KULDIP SARVAIYA
+            <br><br>
+        </center>
+    </address>
+
+    <script>
+        let once = 0
+        let arr = [[2, 2, 2], [2, 2, 2], [2, 2, 2]];
+        let crs = document.getElementById('cross')
+        let cir = document.getElementById('circle')
+
+        function myfunction(row, col, num) {
+
+            let temp
+            switch (num) {
+                case 1:
+                    temp = document.getElementById('box-1')
+                    break;
+                case 2:
+                    temp = document.getElementById('box-2')
+                    break;
+                case 3:
+                    temp = document.getElementById('box-3')
+                    break;
+                case 4:
+                    temp = document.getElementById('box-4')
+                    break;
+                case 5:
+                    temp = document.getElementById('box-5')
+                    break;
+                case 6:
+                    temp = document.getElementById('box-6')
+                    break;
+                case 7:
+                    temp = document.getElementById('box-7')
+                    break;
+                case 8:
+                    temp = document.getElementById('box-8')
+                    break;
+                case 9:
+                    temp = document.getElementById('box-9')
+                    break;
+            }
+            //put 0=O(circle) and 1=*(cross)
+            // temp.innerHTML= once
+            temp.innerHTML = ' '
+            if (once % 2 != 0) {
+                arr[row][col] = 1
+                crs.style.display = 'flex'
+                let clone = crs.cloneNode(true)
+                temp.appendChild(clone)
+                crs.style.display = 'none'
+            }
+            else {
+                arr[row][col] = 0
+                cir.style.display = 'flex'
+                let clone = cir.cloneNode(true)
+                temp.appendChild(clone)
+                cir.style.display = 'none'
+            }
+
+            let main = document.getElementById("main").childNodes[1]
+            let plarey1 = document.getElementsByClassName("player1").value
+            let plarey2 = document.getElementsByClassName("player2").value
+
+            if (plarey1 = "")
+                plarey1 = "Player 1"
+            if (plarey2 = "")
+                plarey2 = "Player 2"
+
+            //matching pair
+            var pos = 1
+            for (let i = 0; i < 2; i++) {
+                if ((arr[0][0] == i && ((arr[0][1] == i && arr[0][2] == i) || (arr[1][0] == i && arr[2][0] == i))) //for match with top-right box
+                    || (arr[2][2] == i && ((arr[0][2] == i && arr[1][2] == i) || (arr[2][0] == i && arr[2][1] == i))) //for match with bottom-left box
+                    || (arr[0][0] == i && arr[1][1] == i && arr[2][2] == i) || (arr[0][2] == i && arr[1][1] == i && arr[2][0] == i) //for both cross line match
+                    || (arr[0][1] == i && arr[1][1] == i && arr[2][1] == i) || (arr[1][0] == i && arr[1][1] == i && arr[1][2] == i)) //for matching both middle row and colum
+                {
+
+                    if (i == 0) {
+                        setTimeout(function () {
+                            // alert(player1 , ` Won the Game..`) 
+                            main.innerHTML = "<center><h1 id=won> Player-1 Won the Game</h1></center>"
+                        }, 100);
+                        pos = 0
+                        break;
+                    }
+                    else {
+                        setTimeout(function () {
+                            // alert(`  Won the Game..`) 
+                            main.innerHTML = "<center><h1 id=won> Player-2 Won the Game</h1></center>"
+                        }, 100);
+                        pos = 0
+                        break;
+                    }
+                }
+            }
+            if (pos == 0) {
+                setTimeout(function () {
+                    window.location.reload();
+                }, 2000);
+            }
+            if (pos == 1 && once == 8) {
+                setTimeout(function () {
+                    alert('This Round Tied.!!')
+                    window.location.reload();
+                }, 300);
+            }
+            once = once + 1 //don't angry me ! Huhh...
+        }
+    </script>
+</body>
+
+</html>

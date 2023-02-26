@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO's List</title>
+    <style>
+        body {
+            color: aliceblue;
+            background-color: black;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            font-weight: 700;
+            font-size: xx-large;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+            color: rgb(252, 255, 211);
+            background-color: rgb(68, 68, 70);
+            text-shadow: 2px 2px 5px cyan, -1px -1px 5px red;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .form {
+            display: grid;
+            justify-content: center;
+            width: 100%;
+        }
+
+        input {
+            background-color: rgb(252, 255, 211);
+            border: none;
+            text-decoration: none;
+            color: black;
+            font-family: 'Comic Sans MS';
+            width: 90%;
+        }
+
+        #description {
+            width: 90%;
+        }
+
+        #submit,
+        button {
+            width: 70px;
+            height: 2em;
+            border-radius: 11%;
+            color: white;
+            background-color: rgb(41, 141, 207);
+        }
+
+        #submit:focus {
+            color: rgb(0, 0, 0);
+            font-weight: 600;
+            background-color: rgb(236, 255, 218);
+        }
+
+        .table {
+            border: 1px dashed white;
+            /* padding: 20px; */
+            /* margin: 20px 20px 0px 20px; */
+            display: flex;
+            justify-content: center;
+        }
+
+        table {
+            padding: 2px;
+            /* display: flex; */
+            justify-content: center;
+            width: 100%;
+        }
+
+        td {
+            /* padding: 5px 20px; */
+            margin-top: 5px;
+            border-bottom: 1px solid white;
+        }
+
+        .caps {
+            font-family: Algerian;
+            background-color: aqua;
+            color: black;
+            border-color: aqua;
+        }
+
+        address {
+            width: 100%;
+            height: auto;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 700;
+            font-size: large;
+            color: rgb(0, 250, 237);
+            background-color: rgb(59, 55, 55);
+            position: relative;
+            bottom: 0px;
+            text-shadow: 2px 3px 1px rgb(0, 0, 0);
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body onload="preload()">
+
+    <div class="header">Add TO DO List</div>
+    <div class="form"> 
+        <h2>Title</h2>
+        <input type="text" placeholder=" ToDo-Title" id="title">
+        <br>
+        <h2>Description</h2>
+        <input type="textarea" placeholder=" ToDo-description" id="description">
+        <br>
+        <input type="submit" id='submit' value="SUBMIT" onclick="update()">
+        <!-- <button onclick="update(),storeit()">SUBMIT</button> -->
+    </div>
+    <br><br><br>
+    <div class="header">ToDo's List</div>
+    <div class="table">
+        <table>
+            <tr class="tr">
+                <td style="width: 110px;" class="caps">DATE</td>
+                <td style="width: 110px;" class="caps">TITLE</td>
+                <td style="width: 30em;" class="caps">DESCRIPTION</td>
+                <td class="caps">ACTION</td>
+            </tr>
+        </table>
+    </div>
+    <address>
+        <center>
+        <br>
+            Developed By - KULDIP SARVAIYA
+            <br>
+            <hr>
+        </center>
+    </address>
+
+    <script>
+        var list = []
+        function update() {
+            let title = document.querySelector('#title').value
+            let desc = document.querySelector('#description').value
+
+            if (title == "" || desc == "")
+                return 0
+
+            let tab = document.querySelector('table')
+            let nw = document.createElement('tr')
+
+            let date = new Date
+            date = date.toLocaleDateString()
+            nw.innerHTML = `<tr id="lists">
+                             <td>${date}</td> 
+                             <td>${title}</td> 
+                             <td>${desc}</td>
+                             <td><button onclick='todelete(event)'>DELETE</button></td>
+                            </tr>`
+            tab.insertAdjacentElement("beforeend", nw)
+
+            localStorage.setItem(title, desc)
+            list.push(title)
+            localStorage.setItem('x', JSON.stringify(list))
+
+        }
+
+        function todelete(e) {
+            let parent = e.target.parentElement.parentElement
+            let remove = parent.children[0].value
+            localStorage.removeItem('remove')
+            parent.parentElement.removeChild(parent)
+        }
+
+        function preload() {
+            list = JSON.parse(localStorage.getItem("x"))
+            if (list != undefined) {
+                tab = document.querySelector('table')
+                for (let el of list) {
+                    let desc = localStorage.getItem(el)
+                    let nw = document.createElement('tr')
+                    nw.outerHTML = `<tr id="lists">
+                                    <td>${el}</td> 
+                                    <td>${desc}</td>
+                                    <td><button onclick="todelete(event)">DELETE</button></td>
+                                    </tr>`
+                    tab.insertAdjacentElement("beforeend", nw)
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
