@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/KDs-Portfolio/static/css/main.80b16fe0.css",
-    "main.js": "/KDs-Portfolio/static/js/main.0782fe78.js",
+    "main.js": "/KDs-Portfolio/static/js/main.5653da4c.js",
     "static/js/201.4574f07a.chunk.js": "/KDs-Portfolio/static/js/201.4574f07a.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/KDs-Portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/linkedin.png": "/KDs-Portfolio/static/media/linkedin.39b978e0dfff057adaee.png",
@@ -17,12 +17,12 @@
     "static/media/space_game.jpg": "/KDs-Portfolio/static/media/space_game.4b2b1f99f5fc655111fe.jpg",
     "index.html": "/KDs-Portfolio/index.html",
     "main.80b16fe0.css.map": "/KDs-Portfolio/static/css/main.80b16fe0.css.map",
-    "main.0782fe78.js.map": "/KDs-Portfolio/static/js/main.0782fe78.js.map",
+    "main.5653da4c.js.map": "/KDs-Portfolio/static/js/main.5653da4c.js.map",
     "201.4574f07a.chunk.js.map": "/KDs-Portfolio/static/js/201.4574f07a.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/KDs-Portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.80b16fe0.css",
-    "static/js/main.0782fe78.js"
+    "static/js/main.5653da4c.js"
   ]
 }
